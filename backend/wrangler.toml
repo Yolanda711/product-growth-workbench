@@ -1,0 +1,21 @@
+name = "product-growth-ai"
+main = "worker.mjs"
+compatibility_date = "2026-10-07"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGINS = "https://yolanda711.github.io"
+# Explicit opt-in after you set OPENAI_API_KEY and OPENAI_MODEL server-side.
+ENABLE_AI = "false"
+OPENAI_MODEL = ""
+DAILY_CALL_LIMIT = "30"
+IP_DAILY_LIMIT = "5"
+IP_HOURLY_LIMIT = "3"
+
+[[durable_objects.bindings]]
+name = "BUDGET"
+class_name = "UsageBudget"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["UsageBudget"]
